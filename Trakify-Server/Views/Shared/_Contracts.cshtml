@@ -1,0 +1,67 @@
+﻿@model List<Trakify.Domain.Entities.Trakify_Contracts>
+
+<p>
+    <input type="button" class="btn btn-success" value="Create New" id="submit" onclick="Contracts.OpenPopUp()">
+</p>
+@if (Model != null && Model.Count > 0)
+{
+    <div id="mainDiv">
+
+        <div class="feedback">
+
+        </div>
+
+        <table class="table" id="tblContracts">
+            <thead>
+                <tr>
+                    <th><b>Name</b></th>
+                    <th><b>Contact No.</b></th>
+                    <th><b>Price</b></th>
+                    <th><b>Purchase Order</b></th>
+                    <th><b>Contact Person Name</b></th>
+                    <th><b>Contact Person Email</b></th>
+                    <th><b>Operations</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContactNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PurchaseOrder)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContactPersonName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContactPersonEmail)
+                        </td>
+                        <td>
+                            <div class="row">
+                                <button class="btn btn-primary col-sm-3" id="m" type="button" onclick="Contracts.OpenEditModal(@item.Id)">Edit</button>
+                                <button class="btn btn-primary offset-1 col-sm-3" type="button" onclick="Contracts.OpenDetailsModal(@item.Id)">Details</button>
+                                <button class="btn btn-primary offset-1 col-sm-3" type="button" onclick="Contracts.Delete('@item.Id','@item.Name')">Delete</button>
+                            </div>
+
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+else
+{
+    <p>No Data is present</p>
+}

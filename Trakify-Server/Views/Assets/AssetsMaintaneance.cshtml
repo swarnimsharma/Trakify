@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "AssetsMaintaneance";
+}
+
+@Html.Partial("_AssetsForms")
+
+
+<style>
+
+    .form-group {
+        margin-bottom: 1rem !important;
+    }
+
+    .file {
+        visibility: hidden;
+        position: absolute;
+    }
+</style>
+
+<script src="~/js/Assets.js"></script>
+<div id="divAssetMaintaneance">
+</div>
+<input type="hidden" id="hdAssetServiceID" />
+<div id="AssetServiceForm" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="margin-left:20%" id="myModalLabel">Please Enter Correct Asset's Service Information</h4>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
+                @*<h4 class="modal-title" id="myModalLabel">Create</h4>*@
+            </div>
+            <div class="modal-body">
+                <form id="cities-form" action="#" method="post">
+                    <div class="row form-group">
+                        <div class="offset-md-3 col-md-6">
+                            <label class="control-label col-md-2">Title</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="AssetTitle" placeholder="Title" />
+                                <span id="spnTitle" class="text-danger"></span>
+                                <input type="hidden" class="form-control" id="hdId" />
+                                <span class="text-danger" id="spnTeamName"></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="offset-md-3 col-md-6">
+                            <label class="control-label col-md-2">Description</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="AssetDescription" placeholder="Description" />
+                                <span id="spnDescription" class="text-danger"></span>
+                                <span class="text-danger" id="spnCity"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="offset-md-3 col-md-6">
+                            <label class="control-label col-md-2">Cost</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="AssetCost" placeholder="Cost" />
+                                <span id="spnCost" class="text-danger"></span>
+                                <span class="text-danger" id="spnCity"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="offset-md-3 col-md-6">
+                            <label class="control-label col-md-2">ServicedDate</label>
+                            <div class="col-md-10">
+                                <input class="form-control" id="AssetServicedDate" data-provide="datepicker" placeholder="ServicedDate" />
+                                <span id="spnServicedDate" class="text-danger"></span>
+                                <span class="text-danger" id="spnCity"></span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <span class="error"></span>
+                <button id="sub" type="button" class="btn btn-info" onclick="Assets.SaveAssetService()">Save</button>
+                <button type="button" class="btn btn-info" data-dismiss="modal">Reset</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $.ajax({
+            type: 'GET',
+            url: '/Assets/_AssetMaintaneance',
+            contentType: 'application/json',
+            success: function (data) {
+                $('#divAssetMaintaneance').html(data);
+            },
+            complete: function () {
+                $('#tblAssetMaintaneance').DataTable();
+            },
+        });
+    });
+</script>
+
+
+
+

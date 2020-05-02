@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+@Html.Partial("_AssetsForms")
+
+
+
+<script src="~/js/Assets.js"></script>
+<div id="divAssests">
+
+</div>
+
+<div id="divAssetInventoryLogs">
+
+</div>
+@*Hidden Fields*@
+<input type="hidden" id="hdAssetID" />
+
+<div id="DeleteModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="margin-left:45%" id="DeleteModalLabel">Delete</h4>
+            </div>
+            <div class="modal-body">
+                <p><b>Are you sure you want to delete?</b></p>
+            </div>
+            <div class="modal-footer">
+                <span class="error"></span>
+                <button type="button" class="btn btn-danger" onclick="Assets.Delete()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .form-group {
+        margin-bottom: 1rem !important;
+    }
+
+    .file {
+        visibility: hidden;
+        position: absolute;
+    }
+</style>

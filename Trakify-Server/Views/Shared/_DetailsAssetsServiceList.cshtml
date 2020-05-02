@@ -1,0 +1,82 @@
+﻿@model Trakify.Domain.Entities.Trakify_Assets
+    <style>
+        #DetailsAssets {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 50%;
+            margin-bottom:10px !important;
+        }
+
+            #DetailsAssets td, #DetailsAssets th {
+                border: 5px solid #ddd;
+                padding: 10px;
+            }
+
+        #DetailsAssets tr:nth-child(even) 
+        {
+            background-color: #f2f2f2
+        }
+      
+
+        #DetailsAssets tr:hover {
+            background-color: #f2f2f2;
+        }
+
+            #DetailsAssets th {
+                padding-top: 12px;
+                padding-bottom: 10px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: cadetblue;
+            }
+    </style>
+<table id =DetailsAssets align="left">
+    <tr>
+        <td>Asset ID</td>
+        <td>@Model.Id</td>
+    </tr>
+    <tr>
+        <td>Serial Number</td>
+        <td>@Model.SerialNo</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td>@Model.Description</td>
+    </tr>
+    <tr>
+        <td>Brand Name</td>
+        <td>@Model.BrandName</td>
+    </tr>
+    <tr>
+        <td>Location  </td>
+        <td>@Model.Location</td>
+    </tr>
+    <tr>
+        <td>Sub Area  </td>
+        <td>@Model.SubArea</td>
+    </tr>
+    <tr>
+        <td>Cost  </td>
+        <td>@Model.Cost</td>
+    </tr>
+    <tr>
+        <td>Supplier  </td>
+        <td>@Model.SupplierName</td>
+    </tr>
+    <tr>
+        <td>TotalInhandQuantity  </td>
+        <td>@Model.TotalInhandQuantity</td>
+    </tr>
+    <tr>
+        <td>AssetColour  </td>
+        <td>@Model.AssetColour</td>
+    </tr>
+    <tr>
+        <td>AssetAcquiredDate </td>
+        <td>@Model.AssetAcquiredDate</td>
+    </tr>
+</table>

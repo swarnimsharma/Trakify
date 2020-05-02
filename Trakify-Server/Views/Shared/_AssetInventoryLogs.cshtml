@@ -1,0 +1,64 @@
+﻿@model List<Trakify.Domain.Entities.Trakify_Assets>
+
+<p>
+    <input type="button" class="btn btn-success" value="Create New" id="submit" onclick="Assets.OpenPopUp()">
+</p>
+@if (Model != null && Model.Count > 0)
+{
+    <div id="mainDiv">
+
+        <div class="feedback">
+
+        </div>
+
+        <table class="table" id="tblAssets">
+            <thead>
+                <tr>
+                    <th><b>Asset ID</b></th>
+                    <th><b>Asset Name</b></th>
+                    <th><b>Issued/Returned Date</b></th>
+                    <th><b>Transaction Type</b></th>
+                    <th><b>Quantity</b></th>
+                    <th><b>Employee</b></th>
+                    <th><b>Project ID</b></th>
+                    <th><b>Work Order No</b></th>
+                    <th><b>Notes</b></th>
+                    <th><b>Due Date</b></th>
+                    <th><b>Created On</b></th>
+                    <th><b>Action</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AddedDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalInhandQuantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BrandName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cost)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+else
+{
+    <p>No Data is present</p>
+}
+

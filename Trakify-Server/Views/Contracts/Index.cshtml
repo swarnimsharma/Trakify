@@ -1,0 +1,225 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<link type="text/css" src="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="~/js/Contracts.js"></script>
+@*<script src="~/js/Bootbox/Bootbox.js"></script>*@
+<div id="divContracts">
+
+</div>
+@*Hidden Fields*@
+<input type="hidden" id="hdContractID" />
+
+<div id="ContractForm" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="margin-left:45%" id="headerContractForm">Create</h4>
+            </div>
+            <div class="modal-body">
+                <form id="cities-form" action="#" method="post">
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">Name</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="ContractName" placeholder="Name" />
+                                <span id="spnName" class="text-danger"></span>
+                                <input type="hidden" class="form-control" id="hdId" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">ContactSubTypeCode</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="ContractContactSubTypeCode" placeholder="Sub Type Code" />
+                                <span id="spnSubTypeCode" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">ContactNo</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="ContractContactNo" placeholder="Contact No" />
+                                <span id="spnContactNo" class="text-danger"></span>
+                                <span class="text-danger" id="spnContactNo"></span>
+                            </div>
+                        </div>
+                       
+
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">Price</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="ContractPrice" placeholder="Price" />
+                                <span id="spnPrice" class="text-danger"></span>
+                                <span class="text-danger" id="spnPrice"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">BillingSchedule</label>
+                            <div class="col-md-10">
+                                <input class="form-control" id="ContractBillingSchedule" placeholder="Billing Schedule" />
+                                <span class="text-danger" id="spnBillingSchedule"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">StartDate</label>
+                            <div class="col-md-10">
+                                <input class="form-control" id="ContractStartDate" data-provide="datepicker" placeholder="StartDate" />
+                                <span class="text-danger" id="spnStartDate"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">ContractEndDate</label>
+                            <div class="col-md-10">
+                                <input class="form-control" id="ContractEndDate" data-provide="datepicker" placeholder="EndDate" />
+                                <span class="text-danger" id="spnEndDate"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">IncludeNoService</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="ContractIncludeNoService" placeholder="Include No Service" />
+                                <span class="text-danger" id="spnIncludeNoService"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">PurchaseOrder</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="ContractPurchaseOrder" placeholder="Purchase Order" />
+                                <span class="text-danger" id="spnPurchaseOrder"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">contactpersonemail</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="contractcontactpersonemail" placeholder="contact person email" />
+                                <span class="text-danger" id="spontactpersonemail"></span>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">PrivateNotes</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="ContractPrivateNotes" placeholder="Private Notes" />
+                                <span class="text-danger" id="spnPrivateNotes"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">ContactPersonName</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="ContractContactPersonName" placeholder="Contact Person Name" />
+                                <span class="text-danger" id="spnContactPersonName"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">ContactPersonPhone</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="ContractContactPersonPhone" placeholder="Contact Person Phone" />
+                                <span class="text-danger" id="spnContactPersonPhone"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">ContactPersonMobile</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="ContractContactPersonMobile" placeholder="Contact Person Mobile" />
+                                <span class="text-danger" id="spnContactPersonMobile"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">AddressCountry</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="ContractAddressCountry" placeholder="AddressCountry" />
+                                <span class="text-danger" id="spnAddressCountry"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">ContractType</label>
+                            <div class="col-md-10">
+                                <select id="ddContractType"></select>
+                                <span class="text-danger" id="spnContactPersonMobile"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+            <label class="control-label col-md-2">ServicesDescription</label>
+            <div class="col-md-10">
+                <textarea type="text" class="form-control" id="ContractServicesDescription" placeholder="Services Description"  rows="3"></textarea>
+                <span class="text-danger" id="spnServicesDescription"></span>
+            </div>
+        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <span class="error"></span>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button id="sub" type="button" class="btn btn-info" onclick="Contracts.SaveContract()">Create</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="DeleteModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="margin-left:45%" id="DeleteModalLabel">Delete</h4>
+            </div>
+            <div class="modal-body">
+                <p><b>Are you sure you want to delete?</b></p>
+            </div>
+            <div class="modal-footer">
+                <span class="error"></span>
+                <button type="button" class="btn btn-danger" onclick="Assets.Delete()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+    $.ajax({
+        type: 'GET',
+        url: '/Contracts/_Contracts',
+        contentType: 'application/json',
+        success: function (data) {
+            $('#divContracts').html(data);
+        },
+        complete: function () {
+            //$('#tblAssets').DataTable();
+        }
+    });
+});
+</script>
+<style>
+    .form-group {
+        margin-bottom: 1rem !important;
+    }
+
+    .file {
+        visibility: hidden;
+        position: absolute;
+    }
+
+    #ContractDropdown {
+        width: 280px !important;
+        height: 30px !important;
+    }
+</style>

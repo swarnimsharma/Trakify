@@ -1,0 +1,57 @@
+﻿@model List<Trakify.Domain.Entities.Trakify_Assets>
+
+@if (Model != null && Model.Count > 0)
+{
+    <div id="divAssestsServiceList">
+        <table class="table" id="tblAssetMaintaneance">
+            <thead>
+                <tr>
+                    <th><b>Asset ID</b></th>
+                    <th><b>Name</b></th>
+                    <th><b>Description</b></th>
+                    <th><b>Supplier</b></th>
+                    <th><b>Add Service</b></th>
+                    <th><b>Check Service</b></th>
+                    <th><b>Last Service</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SupplierName)
+                        </td>
+                        <td>
+                            <input type="button" class="btn btn-success" value="Add Service Details" id="btnServiceDetails" onclick="Assets.OpenAssetService(@item.Id)">
+                        </td>
+                        <td>
+                            @*<input type="button" class="btn btn-success" value="Service List" id="btnServiceDetails" onclick="Assets.DetailsAssetService(@item.Id)">*@
+                            @Html.ActionLink("DetailsAssetsServiceList", "DetailsAssetsServiceList", "Assets", new { @Id = item.Id}, null)
+                        </td>
+                        <td>
+                            Last Serviced
+                            @*@Html.DisplayFor(modelItem => item.Las)*@
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+else
+{
+    <p>No Data is present</p>
+}
+

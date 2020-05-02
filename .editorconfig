@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# S4487: Unread "private" fields should be removed
+dotnet_diagnostic.S4487.severity = none
+
+# S3928: Parameter names used into ArgumentException constructors should match an existing one 
+dotnet_diagnostic.S3928.severity = suggestion

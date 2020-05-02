@@ -1,0 +1,173 @@
+﻿
+<div id="AssetForm" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="margin-left:45%" id="myModalLabel">Create</h4>
+                @*<h4 class="modal-title" id="myModalLabel">Create</h4>*@
+            </div>
+            <div class="modal-body">
+                <form id="cities-form" action="#" method="post">
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">Name</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="AssetName" placeholder="Name" />
+                                <span id="spnName" class="text-danger"></span>
+                                <input type="hidden" class="form-control" id="hdId" />
+                                <span class="text-danger" id="spnTeamName"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">IsSerializedAsset</label>
+                            <div class="col-md-10">
+                                <label class="radio-inline" style="padding:2px !important">
+                                    <input type="radio" name="SerializedAsset" id="SerializedAssetYes" value="true" style="vertical-align:middle"> Yes
+                                </label>
+                                <label class="radio-inline" style="padding:2px !important">
+                                    <input type="radio" name="SerializedAsset" id="SerializedAssetNo" value="false" style="vertical-align:middle"> No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">SerialNo</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="AssetSerialNo" placeholder="Asset Serial No" />
+                                <span id="spnSerial" class="text-danger"></span>
+                                <span class="text-danger" id="spnCity"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">AssetBarcode</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="AssetBarcode" placeholder="Asset Barcode" />
+                                <span id="spnBarcode" class="text-danger"></span>
+                                <span class="text-danger" id="spnCity"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">AssetAcquiredDate</label>
+                            <div class="col-md-10">
+                                <input class="form-control" id="AssetAcquiredDate" data-provide="datepicker" placeholder="Asset Acquired Date" />
+                                @*<span class="text-danger" id="spnAcquiredDate"></span>*@
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">TotalInhandQuantity</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="AssetTotalInhandQuantity" placeholder="Total Inhand Quantity" />
+                                <span class="text-danger" id="spnTotalInhandQuantity"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">Description</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="AssetDescription" placeholder="Description" />
+                                <span class="text-danger" id="spnDescription"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">BrandName</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="AssetBrandName" placeholder="Brand Name" />
+                                <span class="text-danger" id="spnBrandName"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">Location</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="AssetLocation" placeholder="Location" />
+                                <span class="text-danger" id="spnLocation"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">SubArea</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="AssetSubArea" placeholder="Sub Area" />
+                                <span class="text-danger" id="spnSubArea"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">SupplierName</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="AssetSupplierName" placeholder="Supplier Name" />
+                                <span class="text-danger" id="spnSupplierName"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">Cost</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="AssetCost" placeholder="Cost" />
+                                <span class="text-danger" id="spnCity"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">AssetColour</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="AssetColour" placeholder="Asset Colour" />
+                                <span class="text-danger" id="spnCity"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-2">AssetPhoto</label>
+                            <div class="col-md-10">
+                                <div id="msg"></div>
+                                <input type="file" name="img[]" id="AssetFileUpload" class="file" accept="image/*">
+                                <input type="hidden" id="AssetHiddenFileUploadPath" />
+                                <div id="photopath" class="input-group">
+                                    <input type="text" class="form-control" disabled placeholder="Upload File" id="file">
+                                    <div class="input-group-append">
+                                        <button type="button" class="browse btn btn-primary">Browse...</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-9" style="margin-top:1px !important">
+                                    <img src="https://placehold.it/80x80" id="preview" class="img-thumbnail">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <span class="error"></span>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button id="sub" type="button" class="btn btn-info" onclick="Assets.Save()">Create</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="DeleteModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="margin-left:45%" id="DeleteModalLabel">Delete</h4>
+            </div>
+            <div class="modal-body">
+                <p><b>Are you sure you want to delete?</b></p>
+            </div>
+            <div class="modal-footer">
+                <span class="error"></span>
+                <button type="button" class="btn btn-danger" onclick="Assets.Delete()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+﻿@model List<Trakify.Domain.Entities.Trakify_Part>
+<p>
+    <input type="button" class="btn btn-success" value="Create New" id="submit" onclick="Parts.OpenParts()">
+</p>
+@if (Model != null && Model.Count > 0)
+{
+    <div id="mainDiv">
+        <div class="feedback">
+
+        </div>
+
+        <table class="table" id="tblParts">
+            <thead>
+                <tr>
+                    <th><b>Part ID</b></th>
+                    <th><b>Cost</b></th>
+                    <th><b>Markup</b></th>
+                    <th><b>Name</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cost)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Markup)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+
+                        <td>
+                            <div class="row">
+                                <button class="btn btn-primary col-md-7" id="m" type="button" onclick="Parts.OpenEditParts(@item.Id)">Edit</button>
+                            </div>
+
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+else
+{
+    <p>No Data is present</p>
+}
+
+

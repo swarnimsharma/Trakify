@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "PartCategory";
+}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<link type="text/css" src="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="~/js/Parts.js"></script>
+<div id="divPartCategory">
+</div>
+<input type="hidden" id="hdPartCategoryID" value="@ViewBag.PartId"/>
+<div id="PartCategoryForm" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="margin-left:20%" id="myModalLabel">Please Enter Correct Part Category Information</h4>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">X</button>
+                @*<h4 class="modal-title" id="myModalLabel">Create</h4>*@
+            </div>
+            <div class="modal-body">
+                <form id="cities-form" action="#" method="post">
+                    <div class="row form-group">
+                        <div class="offset-md-3 col-md-6">
+                            <label class="control-label col-md-2">Part Category Name</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" id="PartCategoryName" placeholder="Part Category Name" />
+                                <span id="spnPartCategoryName" class="text-danger"></span>
+                                <input type="hidden" class="form-control" id="hdId" />
+                                <span class="text-danger" id="spnPartCategoryName"></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <span class="error"></span>
+                <button id="sub" type="button" class="btn btn-info" onclick="Assets.SaveAssetService()">Save</button>
+                <button type="button" class="btn btn-info" data-dismiss="modal">Reset</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $.ajax({
+            type: 'Post',
+            url: '/Parts/_PartCategory',
+            contentType: 'application/json',
+            success: function (data) {
+                $('#divPartCategory').html(data);
+            },
+            complete: function () {
+                $('#tblPartCategory').DataTable();
+            },
+        });
+    });
+</script>
+
+
